@@ -1,14 +1,14 @@
 {
-  "name": "sit725-2023-t1-prac3",
+  "name": "sit725-2024-t1-prac5",
   "version": "1.0.0",
-  "description": "SIT 725 T1 Week 2 Prac",
+  "description": "SIT 725 T1 Week 5 Prac",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MikeJ58/sit725-2023-t1-prac3.git"
+    "url": "git+https://github.com/MikeJ58/sit725-2023-t1-prac5.git"
   },
   "keywords": [
     "Nodejs",
@@ -21,10 +21,12 @@
   "author": "MikeJ58",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MikeJ58/sit725-2023-t1-prac3.git/issues"
+    "url": "https://github.com/MikeJ58/sit725-2024-t1-prac5.git/issues"
   },
-  "homepage": "https://github.com/MikeJ58/sit725-2023-t1-prac3.git#readme",
+  "homepage": "https://github.com/MikeJ58/sit725-2024-t1-prac5.git#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0"
   }
 }

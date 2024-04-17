@@ -2,10 +2,9 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 class CarModel {
     constructor() {
-        this.uri = ""; // Set your MongoDB URI here
+        this.uri = "mongodb+srv://dbUser:SimplePlan89@cluster1.fopezw4.mongodb.net/"; // Set your MongoDB URI here
         this.client = new MongoClient(this.uri, { serverApi: { version: ServerApiVersion.v1, strict: true, deprecationErrors: true } });
         this.collection = null;
-        this.connect();
     }
 
     async connect() {
@@ -15,11 +14,15 @@ class CarModel {
             console.log("Database connected successfully");
         } catch (ex) {
             console.error("Error connecting to the database:", ex);
+            throw ex;
         }
     }
 
     async getAllCars() {
         try {
+            if (!this.collection) {
+                await this.connect();
+            }
             return await this.collection.find({}).toArray();
         } catch (err) {
             console.error("Error fetching cars:", err);
@@ -29,6 +32,9 @@ class CarModel {
 
     async addCar(car) {
         try {
+            if (!this.collection) {
+                await this.connect();
+            }
             return await this.collection.insertOne(car);
         } catch (err) {
             console.error("Error adding car:", err);
@@ -38,3 +44,4 @@ class CarModel {
 }
 
 module.exports = CarModel;
+

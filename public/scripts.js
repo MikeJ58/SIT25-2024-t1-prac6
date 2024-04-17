@@ -34,3 +34,35 @@ const getCars = () => {
 $(document).ready(function () {
     getCars();
 });
+const submitForm = () => {
+    const formData = {
+        title: $('#title').val(),
+        image: $('#image').val(),
+        link: $('#link').val(),
+        description: $('#description').val()
+    };
+
+    $.ajax({
+        url: '/api/cars',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: (result) => {
+            console.log(result);
+            // Optionally, you can update the UI or display a message to indicate success
+            // For example:
+            // alert('Car added successfully');
+            // Reload the page to reflect the changes
+            window.location.reload();
+        },
+        error: (xhr, status, error) => {
+            console.error('Error adding car:', error);
+            // Optionally, you can display an error message to the user
+        }
+    });
+};
+$(document).ready(function () {
+    // Attach event listener to form submit button
+    $('#submitForm').click(submitForm);
+});
+
