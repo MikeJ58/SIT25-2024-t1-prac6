@@ -29,6 +29,7 @@ class CarModel {
             throw err;
         }
     }
+    
 
     async addCar(car) {
         try {

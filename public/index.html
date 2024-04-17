@@ -78,7 +78,7 @@
             </div>
             <div class="row">
               <div class="input-field col s12 center-align">
-                <a class="waves-effect waves-light btn" name='#submitForm'>Submit</a>
+                <a onclick="submitForm()" href="#submitForm()" class="modal-close waves-effect waves-green btn-flat">Submit</a>
               </div>
             </div>
           </form>
@@ -91,6 +91,9 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts.js"></script>
+  <script src="carModel.js"></script>
+  <script src="carController.js"></script>
+  <script src="server.js"></script>
   <script>
     $(document).ready(function () {
       $('.materialboxed').materialbox();
