@@ -1,24 +1,3 @@
-const cardList = [
-    {
-        title: "Aston Martin",
-        image: "images/aston_martin.jpeg",
-        link: "About Car 1",
-        description: "Demo description about Car 1"
-    },
-    {
-        title: "Porche",
-        image: "images/ferarri.jpeg",
-        link: "About Car 2",
-        description: "Demo description about Car 2"
-    },
-    {
-        title: "Ferarri",
-        image: "images/porche.jpeg",
-        link: "About Car 3",
-        description: "Demo description about Car 3"
-    }
-];
-
 const addCards = (items) => {
     items.forEach(item => {
         let itemToAppend = `
@@ -33,7 +12,7 @@ const addCards = (items) => {
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">${item.title}<i class="material-icons right">close</i></span>
-                        <p class="card-text">${item.description}</p>
+                        <p class="card-text grey-text text-darken-4">${item.description}</p>
                     </div>
                 </div>
             </div>`;
@@ -41,14 +20,17 @@ const addCards = (items) => {
     });
 };
 
-$(document).ready(function () {
-    $('.materialboxed').materialbox();
-    $('#formSubmit').click(() => {
-        submitForm();
+const getCars = () => {
+    $.get('/api/cars', (response) => {
+        if (response.statusCode == 200) {
+            console.log(response);
+            addCards(response.data);
+        } else {
+            console.log(response);
+        }
     });
-    addCards(cardList);
-    $('.modal').modal();
+};
+
+$(document).ready(function () {
+    getCars();
 });
-
-
-
